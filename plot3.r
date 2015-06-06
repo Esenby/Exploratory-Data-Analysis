@@ -23,6 +23,10 @@ png(file="prog3.png",width=480,height=480)
 png(filename="plot3.png", height=480, width=480)
 
 #   Plot including legend
+par<-par()
+par(cex.axis=0.8)
+par(cex.lab=0.8)
+
 plot(timeplot1$datetime, timeplot1$Sub_metering_1,ann=F,axes=F)
 box() 
 axis(2,at=c(0,10,20,30),cex.lab=0.8)
@@ -33,6 +37,7 @@ lines(timeplot1$datetime, timeplot1$Sub_metering_2,col=2)
 lines(timeplot1$datetime, timeplot1$Sub_metering_3,col=4)
 legend("topright",legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),col=c("black","red","blue"),lty=c(1,1,1),cex=0.8)
 
+par(dpar)
 
 
 
