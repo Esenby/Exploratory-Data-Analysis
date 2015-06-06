@@ -17,7 +17,7 @@ timeplot1<-data.frame(datetime,plotfewformatted)
 #   Plot to png file
 png(file="prog3.png",width=480,height=480)
 
-#   Plot 3
+#   Plot 3 - Sub_metering tests (1,2,3) against time (datetime)
 
 #   Open graphical device "png"
 png(filename="plot3.png", height=480, width=480)
