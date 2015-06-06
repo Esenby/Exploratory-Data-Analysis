@@ -5,7 +5,7 @@ plotfew<-filter(plots1, Date=="1/2/2007"|Date=="2/2/2007")
 newformat<-as.Date(strptime(plotfew[,1],"%d/%m/%Y"),"%Y-%m-%d")
 plotfewformatted<-data.frame(newformat,plotfew[,2:9])
 
-##  Second Plot
+##  Preparing the extracted data frame for time series of the measurements
 library(datasets)
 library(lubridate)
 
@@ -15,10 +15,6 @@ datetime<-paste(plotfewformatted$Date,timeplot1)
 timeplot1<-data.frame(datetime,plotfewformatted)
 
 par(mfrow=c(2,2),cex=0.675,cex.lab=0.675,cex.axis=0.675)
-
-#   Plot to png file
-#png(file="plot4.png",width=480,height=480)
-
 
 #   Plot 4a
 plot(timeplot1$datetime, timeplot1$Global_active_power,ann=F,axes=F)
@@ -58,6 +54,8 @@ axis(2,at=c(0.0,0.1,0.2,0.3,0.4,0.5))
 axis(1, at=c(1,1440,2880), lab=c("Thu","Fri","Sat"))  
 lines(timeplot1$datetime, timeplot1$Global_reactive_power)
 title(xlab="datetime",ylab="Global_reactive_power")
+
+#   Printing the graphs to a png file via copy (out of desperation), closing the device and resetting the par defaults
 
 dev.copy(png,"plot4.png",width=480,height=480)
 dev.off(3)
